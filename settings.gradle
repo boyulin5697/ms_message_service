@@ -1,0 +1,7 @@
+rootProject.name = 'ms_message_service'
+include 'ms_message_service_web'
+include 'ms_message_service_grpc'
+include 'ms_message_service_kernel'
+include 'ms_message_service_grpc_starter'
+include 'ms_message_service_gateway'
+
