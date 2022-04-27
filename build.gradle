@@ -1,5 +1,4 @@
 plugins {
-    id 'org.springframework.boot' version '2.6.7'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
@@ -13,19 +12,43 @@ configurations {
         extendsFrom annotationProcessor
     }
 }
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
 
-repositories {
-    mavenCentral()
-}
+    repositories {
+        mavenLocal()
+        maven {
+            url codingArtifactsRepoUrl
+            credentials {
+                username = codingArtifactsGradleUsername
+                password = codingArtifactsGradlePassword
+            }
+        }
+    }
 
-dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
-    compileOnly 'org.projectlombok:lombok'
-    runtimeOnly 'mysql:mysql-connector-java'
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    dependencies {
+        implementation 'com.by:commons:1.0-SNAPSHOT'
+        implementation 'com.alibaba:fastjson:2.0.1'
+        implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap:3.1.1'
+        implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:2021.1'
+        implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config:2021.1'
+        implementation 'io.springfox:springfox-swagger2:2.9.2'
+        implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+        implementation 'com.tencentcloudapi:tencentcloud-sdk-java:3.1.322'
+        implementation 'org.apache.rocketmq:rocketmq-spring-boot-starter:2.2.1'
+        implementation 'org.apache.commons:commons-email:1.5'
+
+        annotationProcessor 'org.projectlombok:lombok:1.18.22'
+        compileOnly 'org.projectlombok:lombok:1.18.22'
+        implementation 'org.springframework.boot:spring-boot-starter-data-jdbc:2.6.7'
+        implementation 'org.springframework.boot:spring-boot-starter-web:2.6.7'
+        implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
+        compileOnly 'org.projectlombok:lombok'
+        runtimeOnly 'mysql:mysql-connector-java:8.0.29'
+        annotationProcessor 'org.projectlombok:lombok'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test:2.6.7'
+    }
 }
 
 tasks.named('test') {
