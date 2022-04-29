@@ -10,6 +10,8 @@ repositories {
 }
 
 dependencies {
+    implementation project(":ms_message_service_api")
+    implementation project(":ms_message_service_kernel")
 }
 
 test {

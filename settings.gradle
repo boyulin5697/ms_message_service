@@ -4,4 +4,5 @@ include 'ms_message_service_kernel'
 include 'ms_message_service_grpc_starter'
 include 'ms_message_service_gateway'
 include 'ms_message_service_core'
+include 'ms_message_service_api'
 

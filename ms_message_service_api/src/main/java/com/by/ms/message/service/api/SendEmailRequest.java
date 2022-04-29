@@ -1,4 +1,4 @@
-package com.by.message.service.gateway.requests;
+package com.by.ms.message.service.api;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;

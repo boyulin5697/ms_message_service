@@ -2,8 +2,9 @@ package com.by.message.service.gateway.controllers;
 
 
 import com.by.commons.communication.StandardResp;
-import com.by.commons.consts.ResponseCodeEnum;
-import com.by.message.service.gateway.requests.SendEmailRequest;
+import com.by.ms.message.service.api.SendEmailRequest;
+import com.by.ms.message.service.kernel.mail.service.MailService;
+import com.by.ms.message.service.kernel.mq.MessageDeliveryType;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,12 +24,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/message")
 public class MessageController {
 
+    @Autowired
+    private MailService mailService;
+
     @RequestMapping("/getRegisterEmail")
     public StandardResp getRegisterEmail(@ModelAttribute SendEmailRequest emailRequest){
         try{
-            return null;
+            return mailService.sendMail(emailRequest, MessageDeliveryType.REGISTER);
         }catch (Exception e){
-            return new StandardResp().error("请求发送注册邮件失败");
+            return new StandardResp().error("Request register email code failed, due to internal error!");
         }
     }
 }
