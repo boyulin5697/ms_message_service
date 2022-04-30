@@ -1,4 +1,4 @@
-package com.by.ms.message.service.kernel.mq;
+package com.by.ms.message.service.kernel.consts;
 
 /**
  * message delivery type
@@ -10,4 +10,8 @@ public interface MessageDeliveryType {
     int REGISTER = 1;
     int LOGIN_VERIFICATION = 2;
     int MODIFY_INFO = 3;
+
+    int INFORM =4;
+    int ADVERTISE = 5;
+    int BILL = 6;
 }

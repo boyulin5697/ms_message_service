@@ -11,6 +11,11 @@ repositories {
 }
 
 dependencies {
+    implementation project(":ms_message_service_api")
+    implementation project(":ms_message_service_kernel")
+    implementation project(":ms_message_service_grpc")
+    implementation project(":ms_message_service_grpc_starter")
+    implementation project(":ms_message_service_gateway")
 }
 
 test {

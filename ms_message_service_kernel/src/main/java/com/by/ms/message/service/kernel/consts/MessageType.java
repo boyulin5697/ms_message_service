@@ -1,4 +1,4 @@
-package com.by.ms.message.service.kernel.mq;
+package com.by.ms.message.service.kernel.consts;
 
 /**
  * Message Type enum

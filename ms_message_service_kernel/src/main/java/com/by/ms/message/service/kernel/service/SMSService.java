@@ -1,4 +1,4 @@
-package com.by.ms.message.service.kernel.sms.service;
+package com.by.ms.message.service.kernel.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
