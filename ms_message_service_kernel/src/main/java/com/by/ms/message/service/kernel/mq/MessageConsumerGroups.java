@@ -35,7 +35,7 @@ public class MessageConsumerGroups {
 
     @Bean
     public DefaultMQPushConsumer messageConsumer()throws MQClientException{
-        log.info("===Message consumer is creating...===");
+        log.info("===Message consumer is creating===");
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer();
         consumer.setConsumerGroup(groupName);
         consumer.setNamesrvAddr(nameServer);

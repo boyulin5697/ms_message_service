@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@MapperScan(basePackages = {"com.by.ms.message.service"})
+@MapperScan(basePackages = {"com.by.ms.message.service.kernel.dao"})
 @EntityScan(basePackages = {"com.by.ms.message.service"})
 @ComponentScan(basePackages = {"com.by.ms.message.service"})
 public class MsMessageServiceWebApplication {

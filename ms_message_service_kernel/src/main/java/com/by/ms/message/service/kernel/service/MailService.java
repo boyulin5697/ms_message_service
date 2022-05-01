@@ -1,11 +1,12 @@
 package com.by.ms.message.service.kernel.service;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.by.commons.communication.StandardResp;
 import com.by.commons.consts.ResponseCodeEnum;
 import com.by.commons.mq.RocketmqProducer;
 import com.by.commons.tools.GenerateCodeTool;
 import com.by.ms.message.service.api.SendEmailRequest;
-import com.by.ms.message.service.kernel.MailEntity;
+import com.by.ms.message.service.kernel.MailLogEntity;
 import com.by.ms.message.service.kernel.dao.MailMapper;
 import com.by.ms.message.service.kernel.consts.MessageType;
 import lombok.extern.slf4j.Slf4j;
@@ -31,7 +32,7 @@ import java.util.Map;
 @Service
 @RefreshScope
 @Slf4j
-public class MailService {
+public class MailService extends ServiceImpl<MailMapper,MailLogEntity> {
     private static final String topic = "topic_message_service";
     @Value("${ms.email.hostName}")
     private String hostName;
@@ -67,7 +68,7 @@ public class MailService {
             return new StandardResp().error(ResponseCodeEnum.REQUEST_ERROR,e.getMessage());
         }
         String code = GenerateCodeTool.generateCode(6);
-        MailEntity mail = new MailEntity();
+        MailLogEntity mail = new MailLogEntity();
         Map<String,Object>params = new HashMap<>();
         params.put("messageType", MessageType.EMAIL);
         params.put("messageDeliveryType", emailRequest.getDeliveryType());

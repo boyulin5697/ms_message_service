@@ -1,5 +1,6 @@
 package com.by.ms.message.service.kernel;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.by.commons.tools.UuidTool;
 import com.by.ms.message.service.kernel.consts.MessageSendStatus;
@@ -22,8 +23,9 @@ import java.util.Date;
 @TableName(value = "send_email_record")
 @Entity
 @Data
-public class MailEntity implements Serializable {
+public class MailLogEntity implements Serializable {
     @Id
+    @TableId
     @Column(name = "ser_id",length = 32)
     private String id = UuidTool.getUUID();
 

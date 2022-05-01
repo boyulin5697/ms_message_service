@@ -50,7 +50,7 @@ public class MessageController {
     @RequestMapping("/getSMSCode")
     public StandardResp getSMS(@RequestBody SendSMSRequest smsRequest){
         try{
-            return null;
+            return smsService.sendCodeSMS(smsRequest);
         }catch (Exception e){
             return new StandardResp().error("Request register email code failed, due to internal error!");
         }
