@@ -42,6 +42,7 @@ subprojects {
         implementation 'org.springframework.boot:spring-boot-starter-data-jdbc:2.6.7'
         implementation 'org.springframework.boot:spring-boot-starter-web:2.6.7'
         implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
+        implementation 'com.baomidou:mybatis-plus-boot-starter:3.5.0'
         compileOnly 'org.projectlombok:lombok'
         runtimeOnly 'mysql:mysql-connector-java:8.0.29'
         annotationProcessor 'org.projectlombok:lombok'

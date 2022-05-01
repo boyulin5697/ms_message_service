@@ -15,7 +15,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 public class SendEmailRequest implements Serializable {
-    @ApiModelProperty(value = "Email(邮箱)",required = true)
+    @ApiModelProperty(value = "email(邮箱)",required = true)
     private String email;
     @ApiModelProperty(value = "deliveryType(发送信息类型)",required = true)
     private int deliveryType;

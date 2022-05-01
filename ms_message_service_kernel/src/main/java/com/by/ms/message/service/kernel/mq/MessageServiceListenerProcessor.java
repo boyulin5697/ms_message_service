@@ -63,6 +63,7 @@ public class MessageServiceListenerProcessor implements MessageListenerConcurren
                 MailLogEntity mailLog = logService.getMailLog(object.getString("mailId"));
                 if(mailLog!=null){
                     mailLog.setSendStatus(MessageSendStatus.SUCCESS);
+                    logService.save(mailLog);
                 }
             }
             else if(messageType==MessageType.SMS){
@@ -70,6 +71,7 @@ public class MessageServiceListenerProcessor implements MessageListenerConcurren
                 SmsLogEntity smsLog = logService.getSMSLog(object.getString("smsId"));
                 if(smsLog!=null){
                     smsLog.setSendStatus(MessageSendStatus.SUCCESS);
+                    logService.save(smsLog);
                 }
             }
         }catch(Exception e){
@@ -78,12 +80,16 @@ public class MessageServiceListenerProcessor implements MessageListenerConcurren
                     MailLogEntity mailLog = logService.getMailLog(object.getString("mailId"));
                     if(mailLog!=null){
                         mailLog.setSendStatus(MessageSendStatus.FAILED);
+                        mailLog.setRemark(e.getMessage());
+                        logService.save(mailLog);
                     }
                 }
                 else if(messageType==MessageType.SMS){
                     SmsLogEntity smsLog = logService.getSMSLog(object.getString("smsId"));
                     if(smsLog!=null){
                         smsLog.setSendStatus(MessageSendStatus.FAILED);
+                        smsLog.setRemark(e.getMessage());
+                        logService.save(smsLog);
                     }
                 }
             if(messageExt.getReconsumeTimes()==MAX_RETRY_TIMES){

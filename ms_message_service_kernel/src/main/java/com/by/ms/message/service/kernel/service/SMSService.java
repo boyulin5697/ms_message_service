@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.by.commons.communication.StandardResp;
 import com.by.commons.consts.ResponseCodeEnum;
 import com.by.commons.mq.RocketmqProducer;
+import com.by.commons.tools.GenerateCodeTool;
 import com.by.commons.tools.UuidTool;
 import com.by.ms.message.service.api.SendSMSRequest;
 import com.by.ms.message.service.kernel.SmsLogEntity;
@@ -83,7 +84,7 @@ public class SMSService extends ServiceImpl<SMSMapper, SmsLogEntity> {
         }catch (Exception e){
             return new StandardResp().error(ResponseCodeEnum.REQUEST_ERROR,e.getMessage());
         }
-        String code = UuidTool.getUUID();
+        String code = GenerateCodeTool.generateCode(6);
         SmsLogEntity sms = new SmsLogEntity();
         Map<String,Object>params = new HashMap<>();
         params.put("messageType", MessageType.SMS);
@@ -135,8 +136,8 @@ public class SMSService extends ServiceImpl<SMSMapper, SmsLogEntity> {
             req.setTemplateParamSet(templateParamSet);
         }
         SendSmsResponse resp = client.SendSms(req);
-        if(resp.getSendStatusSet()[0].getCode().equals("OK")){
-
+        if(!resp.getSendStatusSet()[0].getCode().equals("OK")){
+            throw new RuntimeException(resp.getSendStatusSet()[0].getMessage());
         }
     }
 }

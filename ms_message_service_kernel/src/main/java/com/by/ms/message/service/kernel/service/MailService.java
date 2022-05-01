@@ -40,7 +40,7 @@ public class MailService extends ServiceImpl<MailMapper,MailLogEntity> {
     @Value("${ms.email.smtpPort}")
     private int smtpPort;
 
-    @Value("${ms.email.charset")
+    @Value("${ms.email.charset}")
     private String charset;
 
     @Value("${ms.email.sourceAuth}")

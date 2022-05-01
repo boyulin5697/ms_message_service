@@ -1,5 +1,6 @@
 package com.by.ms.message.service.kernel;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.by.commons.tools.UuidTool;
@@ -25,22 +26,21 @@ import java.util.Date;
 @TableName(value = "send_sms_record")
 public class SmsLogEntity implements Serializable {
     @Id
-    @TableId
-    @Column(name = "ssr_id",length = 32)
+    @TableId(value = "ssr_id")
     private String id = UuidTool.getUUID();
 
-    @Column(name = "ssr_dest_number",length = 108)
+    @TableField(value = "ssr_dest_number")
     private String destNumber;
 
-    @Column(name = "ssr_send_time")
+    @TableField(value = "ssr_send_time")
     private Date sendTime;
 
-    @Column(name = "ssr_delivery_type")
+    @TableField(value = "ssr_delivery_type")
     private int deliveryType;
 
-    @Column(name = "ssr_send_status")
+    @TableField(value = "ssr_send_status")
     private int sendStatus = MessageSendStatus.NOT_SEND;
 
-    @Column(name = "ssr_remark",length = 512)
+    @TableField(value = "ssr_remark")
     private String remark;
 }
