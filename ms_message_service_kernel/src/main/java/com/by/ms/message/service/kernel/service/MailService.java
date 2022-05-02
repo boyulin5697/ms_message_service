@@ -63,7 +63,7 @@ public class MailService extends ServiceImpl<MailMapper,MailLogEntity> {
      */
     public StandardResp sendCodeMail(SendEmailRequest emailRequest){
         try {
-            Assert.isTrue(!StringUtils.hasText(emailRequest.getEmail()), "Email cannot be empty!");
+            Assert.isTrue(StringUtils.hasText(emailRequest.getEmail()), "Email cannot be empty!");
         }catch (IllegalArgumentException e){
             return new StandardResp().error(ResponseCodeEnum.REQUEST_ERROR,e.getMessage());
         }

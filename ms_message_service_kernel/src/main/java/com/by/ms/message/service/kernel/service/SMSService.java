@@ -9,7 +9,6 @@ import com.by.commons.tools.UuidTool;
 import com.by.ms.message.service.api.SendSMSRequest;
 import com.by.ms.message.service.kernel.SmsLogEntity;
 import com.by.ms.message.service.kernel.consts.MessageDeliveryType;
-import com.by.ms.message.service.kernel.consts.MessageSendStatus;
 import com.by.ms.message.service.kernel.consts.MessageType;
 import com.by.ms.message.service.kernel.dao.SMSMapper;
 import com.tencentcloudapi.common.Credential;

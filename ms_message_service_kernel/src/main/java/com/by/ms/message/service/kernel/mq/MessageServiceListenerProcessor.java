@@ -75,6 +75,7 @@ public class MessageServiceListenerProcessor implements MessageListenerConcurren
                 }
             }
         }catch(Exception e){
+            log.error("There is something wrong occurs when handling message" ,e);
                 int messageType = object.getInteger("messageType");
                 if(messageType== MessageType.EMAIL){
                     MailLogEntity mailLog = logService.getMailLog(object.getString("mailId"));
