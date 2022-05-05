@@ -21,8 +21,10 @@ subprojects {
         maven {
             url codingArtifactsRepoUrl
             credentials {
-                username = codingArtifactsGradleUsername
-                password = codingArtifactsGradlePassword
+                username = System.getenv('CODING_ARTIFACTS_USERNAME') ?: codingArtifactsGradleUsername
+                password = System.getenv('CODING_ARTIFACTS_PASSWORD') ?: codingArtifactsGradlePassword
+                //username = codingArtifactsGradleUsername
+                //password = codingArtifactsGradlePassword
             }
         }
     }
