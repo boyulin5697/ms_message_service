@@ -1,4 +1,4 @@
-package com.by.ms.message.service.api;
+package com.by.ms.message.service.api.requests;
 
 
 import io.swagger.annotations.ApiModelProperty;
