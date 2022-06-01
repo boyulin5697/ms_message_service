@@ -1,4 +1,4 @@
-package com.by.ms.message.service.api.requests;
+package com.by.ms.message.service.kernel.requests;
 
 
 import lombok.Getter;

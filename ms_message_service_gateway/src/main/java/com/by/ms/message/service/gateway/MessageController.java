@@ -1,9 +1,9 @@
-package com.by.ms.message.service.gateway.controllers;
+package com.by.ms.message.service.gateway;
 
 
 import com.by.commons.communication.StandardResp;
-import com.by.ms.message.service.api.requests.SendEmailRequest;
-import com.by.ms.message.service.api.requests.SendSMSRequest;
+import com.by.ms.message.service.kernel.requests.SendEmailRequest;
+import com.by.ms.message.service.kernel.requests.SendSMSRequest;
 import com.by.ms.message.service.kernel.service.MailService;
 import com.by.ms.message.service.kernel.service.SMSService;
 import lombok.extern.slf4j.Slf4j;
