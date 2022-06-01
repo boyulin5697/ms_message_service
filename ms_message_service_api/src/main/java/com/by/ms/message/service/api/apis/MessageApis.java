@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @FeignClient(value = "ms_message_service")
-public class MessageApis {
+public interface MessageApis {
 
 
 }
