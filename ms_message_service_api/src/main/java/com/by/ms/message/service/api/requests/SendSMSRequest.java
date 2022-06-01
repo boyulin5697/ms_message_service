@@ -1,7 +1,6 @@
 package com.by.ms.message.service.api.requests;
 
 
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,8 +15,6 @@ import java.io.Serializable;
 @Getter
 @Setter
 public class SendSMSRequest implements Serializable {
-    @ApiModelProperty(value = "telephone(电话号码)",required = true)
     private String telephone;
-    @ApiModelProperty(value = "deliveryType(发送信息类型)",required = true)
     private int deliveryType;
 }

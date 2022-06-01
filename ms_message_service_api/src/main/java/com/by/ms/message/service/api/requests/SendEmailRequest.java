@@ -1,7 +1,6 @@
 package com.by.ms.message.service.api.requests;
 
 
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,8 +15,12 @@ import java.io.Serializable;
 @Getter
 @Setter
 public class SendEmailRequest implements Serializable {
-    @ApiModelProperty(value = "email(邮箱)",required = true)
+    /**
+     * request email address
+     */
     private String email;
-    @ApiModelProperty(value = "deliveryType(发送信息类型)",required = true)
+    /**
+     * delivery type
+     */
     private int deliveryType;
 }
