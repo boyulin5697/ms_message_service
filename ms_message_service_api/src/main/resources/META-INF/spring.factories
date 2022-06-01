@@ -1,1 +1,2 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\com.by.ms.message.service.api.apis.MessageApis
+# pay attention that this bean factory must be noted when run in this service.
+# org.springframework.boot.autoconfigure.EnableAutoConfiguration=\com.by.ms.message.apis.MessageApis

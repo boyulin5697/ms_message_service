@@ -6,12 +6,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
 
-@SpringBootApplication
+
 @EnableDiscoveryClient
 @MapperScan(basePackages = {"com.by.ms.message.service.kernel.dao"})
 @EntityScan(basePackages = {"com.by.ms.message.service"})
-@ComponentScan(basePackages = {"com.by.ms.message.service"})
+@ComponentScan(basePackages = {"com.by.ms.message.service"}, excludeFilters = {
+        @ComponentScan.Filter(type = FilterType.REGEX, pattern = {
+        "com.by.ms.message.apis.MessageApis"}) })
+@SpringBootApplication
 public class MsMessageServiceWebApplication {
 
     public static void main(String[] args) {
