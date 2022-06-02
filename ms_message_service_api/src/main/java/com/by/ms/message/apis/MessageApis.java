@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @since 2022/6/1
  */
 @Component
-@FeignClient(value = "ms_message_service")
+@FeignClient(value = "ms-message-service")
 public interface MessageApis {
 
     /**
