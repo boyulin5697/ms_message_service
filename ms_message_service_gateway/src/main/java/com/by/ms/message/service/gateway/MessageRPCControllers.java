@@ -12,6 +12,7 @@ import com.by.ms.message.service.kernel.service.MailService;
 import com.by.ms.message.service.kernel.service.SMSService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -31,7 +32,7 @@ public class MessageRPCControllers implements MessageApis {
     private SMSService smsService;
 
     @Override
-    public SendMessageResponse<String> requestRegisterEmail(SendMessageRequest request) {
+    public SendMessageResponse<String> requestRegisterEmail(@RequestBody SendMessageRequest request) {
         SendMessageResponse<String> response = new SendMessageResponse<>();
         if(request.getDestination()==null){
             response.setStatus(StatusCode.FAILED);
@@ -60,7 +61,7 @@ public class MessageRPCControllers implements MessageApis {
     }
 
     @Override
-    public SendMessageResponse<String> requestRegisterSms(SendMessageRequest request) {
+    public SendMessageResponse<String> requestRegisterSms(@RequestBody SendMessageRequest request) {
         SendMessageResponse<String> response = new SendMessageResponse<>();
         if(request.getDestination()==null){
             response.setStatus(StatusCode.FAILED);

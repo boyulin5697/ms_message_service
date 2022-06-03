@@ -4,6 +4,7 @@ import com.by.ms.message.service.api.requests.SendMessageRequest;
 import com.by.ms.message.service.api.responses.SendMessageResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -22,7 +23,7 @@ public interface MessageApis {
      * @return response response
      */
     @RequestMapping(value = "/rpc/requestRegisterEmail",method = RequestMethod.POST)
-    SendMessageResponse<String> requestRegisterEmail(SendMessageRequest request);
+    SendMessageResponse<String> requestRegisterEmail(@RequestBody SendMessageRequest request);
 
 
     /**
@@ -31,7 +32,7 @@ public interface MessageApis {
      * @return response response
      */
     @RequestMapping(value = "/rpc/request/requestRegisterSms",method = RequestMethod.POST)
-    SendMessageResponse<String> requestRegisterSms(SendMessageRequest request);
+    SendMessageResponse<String> requestRegisterSms(@RequestBody SendMessageRequest request);
 
 
 
