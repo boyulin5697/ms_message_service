@@ -1,10 +1,25 @@
-plugins {
-    id 'org.springframework.boot' version '2.6.7'
-    id 'java'
+
+buildscript  {
+    ext {
+        projectMainClassName = 'com.by.ms.message.service.core.MsMessageServiceWebApplication'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.12.RELEASE"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:2.7.1"
+    }
 }
 
-group 'com.by'
-version '0.0.1-SNAPSHOT'
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+apply plugin: 'application'
+mainClassName = "${projectMainClassName}"
 
 repositories {
     mavenCentral()
@@ -18,6 +33,14 @@ dependencies {
     implementation project(":ms_message_service_gateway")
 }
 
+jar {
+    manifest {
+        attributes "Manifest-Version": 1.0,
+                'Main-Class': "${projectMainClassName}"
+    }
+}
+
 test {
     useJUnitPlatform()
 }
+
