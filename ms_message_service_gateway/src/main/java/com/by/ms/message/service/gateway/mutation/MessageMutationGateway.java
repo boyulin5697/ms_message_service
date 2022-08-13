@@ -1,4 +1,4 @@
-package com.by.ms.message.service.gateway;
+package com.by.ms.message.service.gateway.mutation;
 
 
 import com.by.commons.communication.StandardResp;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @Slf4j
 @RequestMapping("/message")
-public class MessageController {
+public class MessageMutationGateway {
 
     @Autowired
     private MailService mailService;

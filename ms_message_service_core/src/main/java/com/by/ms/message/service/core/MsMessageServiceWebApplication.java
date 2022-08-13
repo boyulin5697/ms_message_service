@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 
 @EnableDiscoveryClient
@@ -15,6 +16,7 @@ import org.springframework.context.annotation.FilterType;
 @ComponentScan(basePackages = {"com.by.ms.message.service"}, excludeFilters = {
         @ComponentScan.Filter(type = FilterType.REGEX, pattern = {
         "com.by.ms.message.apis.MessageApis"}) })
+@EnableScheduling
 @SpringBootApplication
 public class MsMessageServiceWebApplication {
 

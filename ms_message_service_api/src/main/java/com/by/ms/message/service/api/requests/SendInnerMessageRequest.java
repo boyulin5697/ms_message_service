@@ -26,6 +26,11 @@ public class SendInnerMessageRequest implements ApiRequest {
     private String destId;
 
     /**
+     * message title
+     */
+    private String title;
+
+    /**
      * Message Content
      */
     private String content;

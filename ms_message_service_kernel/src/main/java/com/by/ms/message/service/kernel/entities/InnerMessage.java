@@ -33,6 +33,11 @@ public class InnerMessage implements Serializable {
     private List<String> destId;
 
     /**
+     * Message title
+     */
+    private String title;
+
+    /**
      * The content of the message
      */
     private String content;

@@ -1,9 +1,11 @@
 package com.by.ms.message.service.kernel.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Deque;
 import java.util.LinkedList;
 
@@ -20,6 +22,22 @@ public class MailBox implements Serializable {
     /**
      * mail queue
      */
-    private Deque<String> messageQueue = new LinkedList<>();
+    private Deque<MessageInfo> messageQueue = new LinkedList<>();
+
+    public static MessageInfo createMessageInfo(String messageId, int messageType, Date sendTime){
+        return new MessageInfo(messageId,messageType,sendTime);
+    }
+
+    @Data
+    @AllArgsConstructor
+    public static class MessageInfo{
+
+        private String messageId;
+
+        private int messageType;
+
+        private Date sendTime;
+
+    }
 
 }
