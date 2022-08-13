@@ -2,8 +2,8 @@ package com.by.ms.message.service.kernel.mq;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.by.ms.message.service.kernel.MailLogEntity;
-import com.by.ms.message.service.kernel.SmsLogEntity;
+import com.by.ms.message.service.kernel.entities.MailLogEntity;
+import com.by.ms.message.service.kernel.entities.SmsLogEntity;
 import com.by.ms.message.service.kernel.consts.MessageSendStatus;
 import com.by.ms.message.service.kernel.consts.MessageType;
 import com.by.ms.message.service.kernel.service.LogService;

@@ -1,7 +1,7 @@
 package com.by.ms.message.service.kernel.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.by.ms.message.service.kernel.MailLogEntity;
+import com.by.ms.message.service.kernel.entities.MailLogEntity;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

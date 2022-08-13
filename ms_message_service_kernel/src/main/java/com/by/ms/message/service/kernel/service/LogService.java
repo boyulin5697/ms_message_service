@@ -1,7 +1,7 @@
 package com.by.ms.message.service.kernel.service;
 
-import com.by.ms.message.service.kernel.MailLogEntity;
-import com.by.ms.message.service.kernel.SmsLogEntity;
+import com.by.ms.message.service.kernel.entities.MailLogEntity;
+import com.by.ms.message.service.kernel.entities.SmsLogEntity;
 import com.by.ms.message.service.kernel.dao.MailMapper;
 import com.by.ms.message.service.kernel.dao.SMSMapper;
 import lombok.extern.slf4j.Slf4j;

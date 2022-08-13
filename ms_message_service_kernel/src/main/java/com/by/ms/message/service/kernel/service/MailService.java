@@ -5,7 +5,7 @@ import com.by.commons.communication.StandardResp;
 import com.by.commons.consts.ResponseCodeEnum;
 import com.by.commons.mq.RocketmqProducer;
 import com.by.commons.tools.GenerateCodeTool;
-import com.by.ms.message.service.kernel.MailLogEntity;
+import com.by.ms.message.service.kernel.entities.MailLogEntity;
 import com.by.ms.message.service.kernel.dao.MailMapper;
 import com.by.ms.message.service.kernel.consts.MessageType;
 import com.by.ms.message.service.kernel.requests.SendEmailRequest;

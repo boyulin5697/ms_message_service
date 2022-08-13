@@ -12,3 +12,7 @@ That's what message means.
 1. Email and SMS code: generate and send.
 2. Repository: Store the sending record.
 3. RPC: Instead the complex but high effienct grpc, I choose Spring cloud's Openfeign instead, it's simpler and more suits for spring frameworks.
+
+#### V2.0.0 Function List
+
+1. Support Inner System message delivery.

@@ -1,5 +1,6 @@
 package com.by.ms.message.apis;
 
+import com.by.ms.message.service.api.requests.SendInnerMessageRequest;
 import com.by.ms.message.service.api.requests.SendMessageRequest;
 import com.by.ms.message.service.api.responses.SendMessageResponse;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -33,6 +34,15 @@ public interface MessageApis {
      */
     @RequestMapping(value = "/rpc/request/requestRegisterSms",method = RequestMethod.POST)
     SendMessageResponse<String> requestRegisterSms(@RequestBody SendMessageRequest request);
+
+
+    /**
+     * Send Inner Message
+     * @param request Send Inner Message Request
+     * @return response response
+     */
+    @RequestMapping(value = "/rpc/sendInnerMessage",method = RequestMethod.POST)
+    SendMessageResponse<String> sendInnerMessage(@RequestBody SendInnerMessageRequest request);
 
 
 

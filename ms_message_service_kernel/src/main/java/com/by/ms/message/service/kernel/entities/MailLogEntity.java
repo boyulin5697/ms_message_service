@@ -1,4 +1,4 @@
-package com.by.ms.message.service.kernel;
+package com.by.ms.message.service.kernel.entities;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -15,32 +15,32 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * SMS repository entity
+ * email entity
  *
  * @author by.
  * @date 2022/4/30
  */
+@Table(name = "send_email_record")
+@TableName(value = "send_email_record")
 @Entity
-@Table(name = "send_sms_record")
 @Data
-@TableName(value = "send_sms_record")
-public class SmsLogEntity implements Serializable {
+public class MailLogEntity implements Serializable {
     @Id
-    @TableId(value = "ssr_id")
+    @TableId(value = "ser_id")
     private String id = UuidTool.getUUID();
 
-    @TableField(value = "ssr_dest_number")
-    private String destNumber;
+    @TableField(value = "ser_dest_email")
+    private String destEmail;
 
-    @TableField(value = "ssr_send_time")
+    @TableField(value = "ser_send_time")
     private Date sendTime;
 
-    @TableField(value = "ssr_delivery_type")
+    @TableField(value = "ser_delivery_type")
     private int deliveryType;
 
-    @TableField(value = "ssr_send_status")
+    @TableField(value = "ser_send_status")
     private int sendStatus = MessageSendStatus.NOT_SEND;
 
-    @TableField(value = "ssr_remark")
+    @TableField(value = "ser_remark")
     private String remark;
 }
