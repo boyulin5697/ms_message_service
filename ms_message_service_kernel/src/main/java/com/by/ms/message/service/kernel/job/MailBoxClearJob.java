@@ -1,5 +1,7 @@
 package com.by.ms.message.service.kernel.job;
 
+import com.by.ms.message.service.api.consts.InnerMessageTypes;
+import com.by.ms.message.service.kernel.consts.MessageType;
 import com.by.ms.message.service.kernel.dao.MailboxDao;
 import com.by.ms.message.service.kernel.entities.MailBox;
 import lombok.extern.slf4j.Slf4j;
@@ -14,7 +16,7 @@ import java.util.List;
 import java.util.concurrent.*;
 
 /**
- * Mail Box Clear Job
+ * Mailbox Clear Job
  *
  * @author by.
  * @date 2022/8/13
@@ -31,6 +33,7 @@ public class MailBoxClearJob {
         List<MailBox> mailBoxList = mailboxDao.getAllData();
         Date date = new Date();
         if(mailBoxList.size()>1000){
+            //Count down counter to get the time to stop the thread pools.
             CountDownLatch latch = new CountDownLatch(mailBoxList.size());
             ExecutorService executorService = Executors.newFixedThreadPool(3);
             for(int i=0;i<mailBoxList.size()-1;i++){
@@ -50,7 +53,7 @@ public class MailBoxClearJob {
             try {
                 latch.await();
             }catch (InterruptedException e){
-
+                log.info("Mailbox check finished!",e);
             }
             executorService.shutdown();
 
@@ -67,7 +70,9 @@ public class MailBoxClearJob {
         Deque<MailBox.MessageInfo> afterClearDeque = new LinkedList<>();
         mailBoxDeque.forEach(message -> {
             if((date.getTime() - message.getSendTime().getTime())<604800000){
-                afterClearDeque.add(message);
+                if(message.getMessageType()!= InnerMessageTypes.FRIEND_INVITATION) {
+                    afterClearDeque.add(message);
+                }
             }
         });
         return afterClearDeque;

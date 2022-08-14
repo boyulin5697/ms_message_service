@@ -1,7 +1,5 @@
 package com.by.ms.message.service.gateway;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.by.commons.communication.StandardResp;
 import com.by.ms.message.apis.MessageApis;
 import com.by.ms.message.service.api.consts.StatusCode;
@@ -9,7 +7,6 @@ import com.by.ms.message.service.api.requests.SendInnerMessageRequest;
 import com.by.ms.message.service.api.requests.SendMessageRequest;
 import com.by.ms.message.service.api.responses.SendMessageResponse;
 import com.by.ms.message.service.kernel.consts.MessageDeliveryType;
-import com.by.ms.message.service.kernel.entities.MailBox;
 import com.by.ms.message.service.kernel.requests.SendEmailRequest;
 import com.by.ms.message.service.kernel.requests.SendSMSRequest;
 import com.by.ms.message.service.kernel.service.InnerMessageService;
@@ -18,7 +15,6 @@ import com.by.ms.message.service.kernel.service.SMSService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 /**

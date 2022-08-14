@@ -2,8 +2,6 @@ package com.by.ms.message.service.gateway.query;
 
 import com.by.commons.annotations.CheckProperties;
 import com.by.commons.communication.StandardResp;
-import com.by.ms.message.service.kernel.entities.InnerMessage;
-import com.by.ms.message.service.kernel.entities.MailBox;
 import com.by.ms.message.service.kernel.requests.innermessage.QueryMessageContentRequest;
 import com.by.ms.message.service.kernel.service.InnerMessageService;
 import lombok.extern.slf4j.Slf4j;

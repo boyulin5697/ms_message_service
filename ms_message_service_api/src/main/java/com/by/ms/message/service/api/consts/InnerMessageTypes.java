@@ -15,8 +15,4 @@ public interface InnerMessageTypes {
      * friend invitation message
      */
     int FRIEND_INVITATION = 2;
-    /**
-     * user to user im message
-     */
-    int C2C_IM = 3;
 }
