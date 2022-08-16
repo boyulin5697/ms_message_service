@@ -1,1 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.by.ms.message.service.grpc.starter.MessageServiceGrpcServerProviderConfigurer
