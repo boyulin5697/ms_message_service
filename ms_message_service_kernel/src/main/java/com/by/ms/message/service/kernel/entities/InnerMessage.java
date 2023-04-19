@@ -1,6 +1,7 @@
 package com.by.ms.message.service.kernel.entities;
 
-import com.alibaba.nacos.common.utils.UuidUtils;
+
+import com.by.commons.tools.UuidTool;
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
@@ -20,7 +21,7 @@ public class InnerMessage implements Serializable {
      * Message id
      */
     @MongoId
-    private String messageId = UuidUtils.generateUuid();
+    private String id = UuidTool.getUUID();
 
     /**
      * Message Source

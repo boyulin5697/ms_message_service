@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * MailBox
@@ -18,11 +19,11 @@ import java.util.LinkedList;
 @Data
 public class MailBox implements Serializable {
     @MongoId
-    private String userNo;
+    private String id;
     /**
      * mail queue
      */
-    private Deque<MessageInfo> messageQueue = new LinkedList<>();
+    private List<MessageInfo> messageQueue = new LinkedList<>();
 
     public static MessageInfo createMessageInfo(String messageId, int messageType, Date sendTime){
         return new MessageInfo(messageId,messageType,sendTime);

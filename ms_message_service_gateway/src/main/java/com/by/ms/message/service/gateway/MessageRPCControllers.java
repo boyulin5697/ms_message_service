@@ -1,8 +1,10 @@
 package com.by.ms.message.service.gateway;
 
 import com.by.commons.communication.StandardResp;
+import com.by.commons.tools.modelmappers.ModelMapperUtils;
 import com.by.ms.message.apis.MessageApis;
 import com.by.ms.message.service.api.consts.StatusCode;
+import com.by.ms.message.service.api.requests.SendBatchInnerMessageRequest;
 import com.by.ms.message.service.api.requests.SendInnerMessageRequest;
 import com.by.ms.message.service.api.requests.SendMessageRequest;
 import com.by.ms.message.service.api.responses.SendMessageResponse;
@@ -99,6 +101,21 @@ public class MessageRPCControllers implements MessageApis {
         SendMessageResponse<String> response = new SendMessageResponse<>();
         try{
             innerMessageService.sendInnerMessage(request);
+            response.setStatus(StatusCode.SUCCESS);
+            response.setData("Succeed!");
+        }catch (Exception e){
+            log.error("openFeign RPC occurs error!",e);
+            response.setStatus(StatusCode.FAILED);
+            response.setData("Failed!");
+        }
+        return response;
+    }
+
+    @Override
+    public SendMessageResponse<String> sendBatchInnerMessage(SendBatchInnerMessageRequest request) {
+        SendMessageResponse<String> response = new SendMessageResponse<>();
+        try{
+            innerMessageService.sendBatchInnerMessage(request);
             response.setStatus(StatusCode.SUCCESS);
             response.setData("Succeed!");
         }catch (Exception e){

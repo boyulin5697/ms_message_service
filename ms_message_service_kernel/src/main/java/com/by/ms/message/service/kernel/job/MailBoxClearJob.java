@@ -30,6 +30,7 @@ public class MailBoxClearJob {
 
     @Scheduled(cron = "0 0 0 ? * MON")
     public void mailBoxClearJob(){
+        log.warn("=== Starting the inner information mailbox clean up process ===");
         List<MailBox> mailBoxList = mailboxDao.getAllData();
         Date date = new Date();
         if(mailBoxList.size()>1000){
@@ -63,11 +64,12 @@ public class MailBoxClearJob {
                 mailboxDao.save(mailBox);
             });
         }
+        log.warn(" === Inner message clean up ended ===");
     }
 
 
-    public Deque<MailBox.MessageInfo> clearOutdateData(Date date, Deque<MailBox.MessageInfo> mailBoxDeque){
-        Deque<MailBox.MessageInfo> afterClearDeque = new LinkedList<>();
+    public List<MailBox.MessageInfo> clearOutdateData(Date date, List<MailBox.MessageInfo> mailBoxDeque){
+        List<MailBox.MessageInfo> afterClearDeque = new LinkedList<>();
         mailBoxDeque.forEach(message -> {
             if((date.getTime() - message.getSendTime().getTime())<604800000){
                 if(message.getMessageType()!= InnerMessageTypes.FRIEND_INVITATION) {

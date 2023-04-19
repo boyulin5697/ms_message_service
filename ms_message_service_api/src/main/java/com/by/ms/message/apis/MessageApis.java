@@ -1,5 +1,6 @@
 package com.by.ms.message.apis;
 
+import com.by.ms.message.service.api.requests.SendBatchInnerMessageRequest;
 import com.by.ms.message.service.api.requests.SendInnerMessageRequest;
 import com.by.ms.message.service.api.requests.SendMessageRequest;
 import com.by.ms.message.service.api.responses.SendMessageResponse;
@@ -11,8 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * Message feign apis
- * @author boyulin
- * @since 2022/6/1
+ * @author by.
  */
 @Component
 @FeignClient(value = "ms-message-service")
@@ -44,6 +44,13 @@ public interface MessageApis {
     @RequestMapping(value = "/rpc/sendInnerMessage",method = RequestMethod.POST)
     SendMessageResponse<String> sendInnerMessage(@RequestBody SendInnerMessageRequest request);
 
+    /**
+     * Send inner messages to a batch of users
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "rpc/sendBatchInnerMessage", method = RequestMethod.POST)
+    SendMessageResponse<String> sendBatchInnerMessage(@RequestBody SendBatchInnerMessageRequest request);
 
 
 }
